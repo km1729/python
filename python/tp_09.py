@@ -35,5 +35,3 @@ def uses_all(word):
 
 def is_abecedarian(word):
     return True
-
-
