@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  cloudbeaver:
+      image: docker.io/dbeaver/cloudbeaver:latest
+      container_name: dbeaver
+      restart: always
+      ports:
+       - '8081:8978'
+      volumes: 
+       - ./cloudbeaver:/opt/cloudbeaver/workspace            
+
+# networks:
+#   default:
+#     name: app
+#     external: true
+
+volumes:
+  cloudbeaver:
