@@ -10,25 +10,28 @@ topics = [
     {'id':4, 'title':'Flask', 'body':'Flask is ....'}
 ]
 
-@app.route('/')
-def index():
-    liTags = ''
-    for topic in topics:
-        liTags = liTags + f'<li><a href="/update/{topic["id"]}/">{topic["title"]}</a></li>'
-
+def template(contents, content):
     return f'''
     <!doctype html>
     <html>
         <body>
             <h1> Hello World </h1>
             <ol>
-                {liTags}
+                {contents}
             </ol>
             <h2> Welcome </h2>
-            Hello, web
+            {content}
         </body>
     </html>    
     '''
+
+@app.route('/')
+def index():
+    liTags = ''
+    for topic in topics:
+        liTags = liTags + f'<li><a href="/update/{topic["id"]}/">{topic["title"]}</a></li>'
+
+    return template(liTags, '<h2>Hello World</h2>')
 
 @app.route('/update/<int:id>/')
 def update(id):   
@@ -39,7 +42,7 @@ def update(id):
         if id == topic['id']:
             title = topic['title']
             body = topic['body']
-    return f'{title}, {body}'
+    return template(title, body)
 
 @app.route('/read')
 def read():
