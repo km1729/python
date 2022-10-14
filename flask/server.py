@@ -29,6 +29,18 @@ def index():
         </body>
     </html>    
     '''
+
+@app.route('/update/<int:id>/')
+def update(id):   
+    print(type(id))
+    title = ''
+    body = ''
+    for topic in topics:
+        if id == topic['id']:
+            title = topic['title']
+            body = topic['body']
+    return f'{title}, {body}'
+
 @app.route('/read')
 def read():
     return 'read page'
@@ -37,12 +49,7 @@ def read():
 def create():
     return 'create page'
 
-@app.route('/update/<id>/')
-def update(id):
-    contents = ''
-    for topic in topics:
-        contents = f'{topic["body"]}'
-    return f'{contents}'
+
 
 app.run(debug=True)
 #app.run(port=5001)
