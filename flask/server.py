@@ -3,23 +3,32 @@ import random
 
 app = Flask(__name__)
 
+topics = [
+    {'id':1, 'title':'html', 'body':'html is ....'},
+    {'id':2, 'title':'CSS', 'body':'CSS is ....'},
+    {'id':3, 'title':'Python', 'body':'Python is ....'},
+    {'id':4, 'title':'Flask', 'body':'Flask is ....'}
+]
+
 @app.route('/')
 def index():
-    return '''
+    liTags = ''
+    for topic in topics:
+        liTags = liTags + f'<li><a href="/update/{topic["id"]}/">{topic["title"]}</a></li>'
+
+    return f'''
     <!doctype html>
     <html>
         <body>
             <h1> Hello World </h1>
             <ol>
-                <li><a href="/update/1/">html</a> </li>
-                <li><a href="/update/2/">CSS</a> </li>
-                <li><a href="/update/3/">Python</a> </li>
-                <li><a href="/update/4/">Flask</a> </li>
+                {liTags}
             </ol>
+            <h2> Welcome </h2>
+            Hello, web
         </body>
     </html>    
     '''
-
 @app.route('/read')
 def read():
     return 'read page'
@@ -30,8 +39,10 @@ def create():
 
 @app.route('/update/<id>/')
 def update(id):
-    print(id)
-    return 'update ' + id
+    contents = ''
+    for topic in topics:
+        contents = f'{topic["body"]}'
+    return f'{contents}'
 
 app.run(debug=True)
 #app.run(port=5001)
