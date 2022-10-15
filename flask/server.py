@@ -11,18 +11,31 @@ topics = [
     {'id':4, 'title':'Flask', 'body':'Flask is ....'}
 ]
 
-def template(contents, content):
+def template(menu, content, id=None):
+    ContextUI = ''
+    if id !=None:
+        ContextUI = f'''
+            <li><a href="/update/{id}">update</a></li>
+            <li><form action="/delete/{id}/" method="POST">
+                <input type="submit" value="Delete">
+            </a></li>
+        '''
+
     return f'''
     <!doctype html>
     <html>
         <body>
-            <h1> <a href="/">Hello World</a> </h1>
+            <h1> <a href="/">Flask</a> </h1>
             <ol>
-                {contents}
+                {menu}
             </ol>
-            <h2> Welcome </h2>
+            <h2> ============= Body === </h2>
             <p>{content}</p>
-            <p><a href="/create/">create</a></p>
+            <h2> ============= Page option === </h2>
+            <ol>
+                <li><a href="/create/">create new menu</a></li>
+                {ContextUI}
+            </ol>
         </body>
     </html>    
     '''
@@ -37,7 +50,7 @@ def getContents():
 
 @app.route('/')
 def index():    
-    return template(getContents(), '<h2>Hello World</h2>')
+    return template(getContents(), '<h2>Flask Home Page</h2>')
 
 @app.route('/read/<int:id>/')
 def read(id):
@@ -48,7 +61,7 @@ def read(id):
             title = topic['title']
             body = topic['body']
             break
-    return template(getContents(), f'<h2>{title}</h2>{body}')
+    return template(getContents(), f'<h2>{title}</h2>{body}', id)
 
 @app.route('/create/', methods=['POST','GET'])
 def create():
@@ -72,6 +85,9 @@ def create():
         nextId +=1
         return redirect(url)
 
+@app.route('/update/', methods=['POST','GET'])
+def update():
+    return
 
 
 app.run(debug=True)
