@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, request, redirect
 import random
 
 app = Flask(__name__)
 
+nextId=5
 topics = [
     {'id':1, 'title':'html', 'body':'html is ....'},
     {'id':2, 'title':'CSS', 'body':'CSS is ....'},
@@ -15,12 +16,13 @@ def template(contents, content):
     <!doctype html>
     <html>
         <body>
-            <h1> Hello World </h1>
+            <h1> <a href="/">Hello World</a> </h1>
             <ol>
                 {contents}
             </ol>
             <h2> Welcome </h2>
-            {content}
+            <p>{content}</p>
+            <p><a href="/create/">create</a></p>
         </body>
     </html>    
     '''
@@ -48,9 +50,27 @@ def read(id):
             break
     return template(getContents(), f'<h2>{title}</h2>{body}')
 
-@app.route('/create')
+@app.route('/create/', methods=['POST','GET'])
 def create():
-    return 'create page'
+    print(request.method)
+    if request.method == 'GET':
+        content = '''
+        <form action = "/create/" method="POST" >
+            <p><input type="text" name="title"></p>
+            <p><textarea name="body"></textarea></p>
+            <p><input type="submit" value="create"></p>
+        </form>
+        '''
+        return template(getContents(), content)
+    elif request.method == 'POST':
+        global nextId
+        title = request.form['title']
+        body = request.form['body']
+        newTopic = {'id':nextId , 'title':title, 'body': body}
+        topics.append(newTopic)
+        url = '/read/' + str(nextId) + '/'
+        nextId +=1
+        return redirect(url)
 
 
 
