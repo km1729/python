@@ -87,7 +87,16 @@ def create():
 
 @app.route('/update/', methods=['POST','GET'])
 def update():
-    return
+    if request.method == "GET":            
+        content = '''
+        <form action = "/update/" method="POST" >
+                <p><input type="text" name="title"></p>
+                <p><textarea name="body"></textarea></p>
+                <p><input type="submit" value="create"></p>
+        </form>
+        '''
+
+    return template(getContents(), content)
 
 
 app.run(debug=True)
