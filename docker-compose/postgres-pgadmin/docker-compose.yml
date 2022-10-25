@@ -6,14 +6,13 @@ services:
     container_name: db
     restart: always
     environment: 
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=postgres
     ports: 
-      - 5432:5432
+      - 54320:5432
     volumes:
-      - ./data_db_local:/var/lib/postgresql/data
+      - ./postgres:/var/lib/postgresql/data
 
   pgadmin:
     image: docker.io/dpage/pgadmin4
@@ -22,12 +21,15 @@ services:
       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
     ports:
-      - "8080:80"
+      - 54330:80
     depends_on: 
       - postgres
     volumes:
-      - ./data_pgadmin:/var/lib/pgadmin 
+      - ./pgadmin:/var/lib/pgadmin 
 
 volumes:
-  local_pgdata:
-  pgadmin-data:
+  postgres:
+  pgadmin:
+
+
+  
