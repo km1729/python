@@ -1,0 +1,18 @@
+film: 'Fight Club'
+genre: 'Action'
+release:
+    year: 1999
+    month: 11
+    day: 13
+actors:
+    main:
+      - 1st: 'Brad Pitt'
+        2nd: 'Edward Norton'
+
+
+# film: 'Snowpiercer'
+# genre: 'SF'
+# release:
+#     year: 2013
+#     month: 8
+#     day: 1
