@@ -16,14 +16,13 @@ def index():
     val2 = google_keyword.get_search_count(key2)
     print(val1, val2)
 
-    data = {'key1':val1, 'key2':val2}
-
-    if key1 is None and key2 is None:
-        return render_template('index.html')
+    data = {key1:val1, key2:val2}
 
     # 키워드 가 none일 경우는 아무것도 하지 않기
     # 키워드 가 있을 경우 검색하기
 
+    if key1 is None and key2 is None:
+        return render_template('index.html')
     return render_template('index.html', data=data)
 
 
