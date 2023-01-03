@@ -1,9 +1,0 @@
-# library & package list to install in the conda
-
-sqlalchemy
-sqlalchemy-utils
-pysqlite3 
-jupyter
-pandas
-matplotlib
-scikit-learn
