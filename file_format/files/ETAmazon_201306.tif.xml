@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20200226</CreaDate><CreaTime>14335000</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Spatial Analyst Tools.tbx\ExtractByMask" Date="20200226" Time="143350">ExtractByMask ETAmazon_201306.tif ETAmazon_200906_PointToRaste D:\EMU\data_blog\ETAmazon_201306.tif</Process></lineage></DataProperties></Esri></metadata>
