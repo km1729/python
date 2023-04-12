@@ -13,6 +13,8 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
     environment:
     - JUPYTER_TOKEN=easy
+    - GRANT_SUDO: "yes"
+    user: root
   
 volumes:
   code:
