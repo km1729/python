@@ -12,8 +12,7 @@ services:
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
     environment:
-    - JUPYTER_TOKEN=easy
-    - GRANT_SUDO: "yes"
+      - JUPYTER_TOKEN=easy
     user: root
   
 volumes:
