@@ -5,7 +5,6 @@ getattr()
 class Student:
     name = "Kelly"
     marks = 88
-    
 
 person = Student()
 
@@ -72,3 +71,8 @@ output:
 '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 
 'marks', 'name']
 '''
+    
+# Better comment extention test
+# //TODO: example
+# //OPTIMIZE
+# //FIXME
