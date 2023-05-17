@@ -36,6 +36,16 @@
     - Keyword-only arguments: argument is specified by keyword myfunction(arg1, *,support=True)
 
 4. Advanced Collections
+    - python data type 
+      - list: Mutable sequence of values
+      - tuple: Fixed sequence of values
+      - set: Sequence of distinct values
+      - dictionary: collection of key-value pairs
+      - [collections module](https://docs.python.org/3/library/collections.html)
+        - namedtuple: maintainable and easy to read, lightweight immutable class, include useful methods
+        - orderedDict, defalutdict
+        - counter
+        - deque
 
 5. Advanced Classes and Objects
 
