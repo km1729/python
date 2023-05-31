@@ -43,7 +43,8 @@
       - dictionary: collection of key-value pairs
       - [collections module](https://docs.python.org/3/library/collections.html)
         - namedtuple: maintainable and easy to read, lightweight immutable class, include useful methods
-        - orderedDict, defalutdict
+        - defalutdict: 리스트에서 중복되는 값들의 키와 갯수를 딕셔너리로 만드는 코드를 간단하게 작성 할 수 있다
+        - orderedDict 
         - counter
         - deque
 
