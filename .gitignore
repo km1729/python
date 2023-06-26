@@ -4,3 +4,7 @@ file/***/.venv
 **/*.json
 **/*.csv
 **/*.nc
+
+**/build
+**/__pycache__
+**/*.egg-info
