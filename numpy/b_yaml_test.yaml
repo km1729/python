@@ -9,10 +9,9 @@ actors:
       - 1st: 'Brad Pitt'
         2nd: 'Edward Norton'
 
-
-# film: 'Snowpiercer'
-# genre: 'SF'
-# release:
-#     year: 2013
-#     month: 8
-#     day: 1
+postgres:
+  host: 'localhost'
+  port: 5432
+  database: 'testdb1'
+  user: 'k'
+  password: 'aa1234' 
