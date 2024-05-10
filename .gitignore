@@ -8,3 +8,5 @@ file/***/.venv
 **/build
 **/__pycache__
 **/*.egg-info
+.vscode/*.*
+.gitignore
